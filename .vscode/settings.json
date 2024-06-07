@@ -1,0 +1,7 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always",
+    "source.organizeImports": "always"
+  },
+  "eslint.experimental.useFlatConfig": true
+}

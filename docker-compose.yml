@@ -1,0 +1,28 @@
+services:
+  headscale:
+    image: headscale/headscale:v0.23.0-alpha12
+    container_name: headscale
+    restart: unless-stopped
+    command: serve
+    ports:
+      - 3478:3478/udp
+      - 8080:8080
+      - 9090:9090
+      - 50443:50443
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./headscale/config:/etc/headscale
+      - ./headscale/data:/var/lib/headscale
+
+  hsxi:
+    image: ghcr.io/kunish/hsxi
+    container_name: hsxi
+    restart: unless-stopped
+    environment:
+      NUXT_HEADSCALE_API: http://headscale:8080
+    ports:
+      - 80:3000
+    links:
+      - headscale
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
