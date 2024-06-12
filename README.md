@@ -1,75 +1,43 @@
-# Nuxt 3 Minimal Starter
+# HSXI
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+HSXI, A next generation interface for headscale - powered by shadcn
 
-## Setup
+![screenshot](docs/screenshot.png)
 
-Make sure to install the dependencies:
+## Getting started
 
-```bash
-# npm
-npm install
+### Prerequisites
 
-# pnpm
-pnpm install
+- [Docker] (https://www.docker.com/get-started)
+- [Docker Compose] (https://docs.docker.com/compose/install)
 
-# yarn
-yarn install
+### Customize headscale configurations
 
-# bun
-bun install
-```
+To customize the headscale configurations, you can edit headscale config yaml files in the `headscale/config` directory
 
-## Development Server
+See the [official headscale example config file](https://github.com/juanfont/headscale/blob/main/config-example.yaml) for more information on how to customize headscale
 
-Start the development server on `http://localhost:3000`:
+### Running the project
+
+1. Clone the repository
+2. Run the following command in the project root directory:
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+docker compose up -d
 ```
 
-## Production
+3. Access the project at `http://localhost:3000`
 
-Build the application for production:
+### Stop the project
+
+To stop the project, run the following command in the project root directory:
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+docker compose down
 ```
 
-Locally preview production build:
+## Credits
 
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- [Headscale](https://github.com/juanfont/headscale)
+- [Nuxt](https://github.com/nuxt/nuxt)
+- [shadcn-vue](https://github.com/radix-vue/shadcn-vue)
