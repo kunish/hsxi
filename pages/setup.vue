@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Loader2Icon } from 'lucide-vue-next'
+import { toast } from 'vue-sonner'
 import { z } from 'zod'
 
 import { Button } from '~/components/ui/button'
@@ -10,9 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from '~/components/ui/card'
-import { useToast } from '~/components/ui/toast'
 
-const { toast } = useToast()
 const isSubmitting = ref(false)
 
 const schema = z.object({
@@ -35,9 +34,7 @@ const onSubmit = async (values: z.infer<typeof schema>) => {
 
     await navigateTo('/', { replace: true })
   } catch (err) {
-    toast({
-      variant: 'destructive',
-      title: (err as Error).name,
+    toast.error((err as Error).name, {
       description: (err as Error).message,
     })
   } finally {

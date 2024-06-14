@@ -10,6 +10,7 @@ import { format } from 'date-fns'
 import { Loader2Icon } from 'lucide-vue-next'
 import { useForm } from 'vee-validate'
 import type { ComponentExposed } from 'vue-component-type-helpers'
+import { toast } from 'vue-sonner'
 import { z } from 'zod'
 
 import { NodeColumnActionsDropdownMenu } from '~/components/NodeColumnActions'
@@ -27,11 +28,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '~/components/ui/dialog'
-import { useToast } from '~/components/ui/toast'
 import type * as apiTypes from '~/typings/api'
 
 const { $api } = useNuxtApp()
-const { toast } = useToast()
 const rootStore = useRootStore()
 const { fetchNodes } = rootStore
 const { nodesData, usersData } = storeToRefs(rootStore)
@@ -227,9 +226,7 @@ const onRegisterNodeDialogFormSubmit = form.handleSubmit(async () => {
       isRegisterNodeDialogOpen.value = false
     }
   } catch (err) {
-    toast({
-      variant: 'destructive',
-      title: (err as Error).name,
+    toast.error((err as Error).name, {
       description: (err as Error).message,
     })
   }
@@ -251,9 +248,7 @@ const onDeleteSelected = async () => {
 
     await fetchNodes()
   } catch (err) {
-    toast({
-      variant: 'destructive',
-      title: (err as Error).name,
+    toast.error((err as Error).name, {
       description: (err as Error).message,
     })
   } finally {

@@ -7,6 +7,7 @@ import {
 } from '@tanstack/vue-table'
 import { format } from 'date-fns'
 import type { ComponentExposed } from 'vue-component-type-helpers'
+import { toast } from 'vue-sonner'
 
 import { Button } from '~/components/ui/button'
 import { Checkbox } from '~/components/ui/checkbox'
@@ -15,10 +16,8 @@ import {
   DataTableColumnHeader,
   DataTableViewOptions,
 } from '~/components/ui/data-table'
-import { useToast } from '~/components/ui/toast'
 import type * as apiTypes from '~/typings/api'
 
-const { toast } = useToast()
 const { $api } = useNuxtApp()
 const rootStore = useRootStore()
 const { fetchApiKeys } = rootStore
@@ -141,9 +140,7 @@ const onDeleteSelected = async () => {
 
     await fetchApiKeys()
   } catch (err) {
-    toast({
-      variant: 'destructive',
-      title: (err as Error).name,
+    toast.error((err as Error).name, {
       description: (err as Error).message,
     })
   } finally {
@@ -163,10 +160,13 @@ const onCreate = async () => {
       method: 'post',
     })
 
-    await navigator.clipboard.writeText(apiKey)
-
-    toast({
-      title: 'Newly created apiKey has been copied to clipboard!',
+    toast('Newly created apiKey has been copied to clipboard!', {
+      action: {
+        label: 'Copy',
+        onClick: async () => {
+          await navigator.clipboard.writeText(apiKey)
+        },
+      },
       description: h('div', { class: 'break-all' }, apiKey),
     })
 

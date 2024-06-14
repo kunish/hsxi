@@ -7,6 +7,7 @@ import {
 } from '@tanstack/vue-table'
 import { format } from 'date-fns'
 import type { ComponentExposed } from 'vue-component-type-helpers'
+import { toast } from 'vue-sonner'
 
 import { Checkbox } from '~/components/ui/checkbox'
 import {
@@ -15,13 +16,11 @@ import {
   DataTableViewOptions,
 } from '~/components/ui/data-table'
 import { Switch } from '~/components/ui/switch'
-import { useToast } from '~/components/ui/toast'
 import type * as apiTypes from '~/typings/api'
 
 const dataTableRef =
   ref<ComponentExposed<typeof DataTable<apiTypes.Route, apiTypes.Route>>>()
 
-const { toast } = useToast()
 const { $api } = useNuxtApp()
 const rootStore = useRootStore()
 const { fetchRoutes } = rootStore
@@ -139,9 +138,7 @@ const onEnable = async () => {
 
     await fetchRoutes()
   } catch (err) {
-    toast({
-      variant: 'destructive',
-      title: (err as Error).name,
+    toast.error((err as Error).name, {
       description: (err as Error).message,
     })
   } finally {
@@ -167,9 +164,7 @@ const onDisable = async () => {
 
     await fetchRoutes()
   } catch (err) {
-    toast({
-      variant: 'destructive',
-      title: (err as Error).name,
+    toast.error((err as Error).name, {
       description: (err as Error).message,
     })
   } finally {

@@ -10,6 +10,7 @@ import { format } from 'date-fns'
 import { Loader2Icon } from 'lucide-vue-next'
 import { useForm } from 'vee-validate'
 import type { ComponentExposed } from 'vue-component-type-helpers'
+import { toast } from 'vue-sonner'
 import { z } from 'zod'
 
 import { Checkbox } from '~/components/ui/checkbox'
@@ -25,13 +26,11 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '~/components/ui/dialog'
-import { useToast } from '~/components/ui/toast'
 import type * as apiTypes from '~/typings/api'
 
 const dataTableRef =
   ref<ComponentExposed<typeof DataTable<apiTypes.User, apiTypes.User>>>()
 
-const { toast } = useToast()
 const { $api } = useNuxtApp()
 
 const rootStore = useRootStore()
@@ -110,9 +109,7 @@ const onCreateUserDialogFormSubmit = form.handleSubmit(async () => {
       isCreateUserDialogOpen.value = false
     }
   } catch (err) {
-    toast({
-      variant: 'destructive',
-      title: (err as Error).name,
+    toast((err as Error).name, {
       description: (err as Error).message,
     })
   }
@@ -134,9 +131,7 @@ const onDeleteSelected = async () => {
 
     await fetchUsers()
   } catch (err) {
-    toast({
-      variant: 'destructive',
-      title: (err as Error).name,
+    toast.error((err as Error).name, {
       description: (err as Error).message,
     })
   } finally {
