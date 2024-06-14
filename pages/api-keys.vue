@@ -160,7 +160,7 @@ const onCreate = async () => {
       method: 'post',
     })
 
-    toast('Newly created apiKey has been copied to clipboard!', {
+    toast('A new api key has been created', {
       action: {
         label: 'Copy',
         onClick: async () => {
