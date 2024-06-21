@@ -69,39 +69,39 @@ const columns: ColumnDef<apiTypes.Node, any>[] = [
   columnHelper.accessor('id', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
   }),
   columnHelper.accessor('createdAt', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
     cell: ({ row }) => format(row.original.createdAt, 'yyyy-MM-dd HH:mm:ss'),
   }),
   columnHelper.accessor('lastSeen', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
     cell: ({ row }) => format(row.original.lastSeen, 'yyyy-MM-dd HH:mm:ss'),
   }),
   columnHelper.accessor('givenName', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
   }),
   columnHelper.accessor('name', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
   }),
   columnHelper.accessor('ipAddresses', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
     cell: ({ row }) =>
       h(
@@ -125,7 +125,7 @@ const columns: ColumnDef<apiTypes.Node, any>[] = [
   columnHelper.accessor('online', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
     cell: ({ row }) =>
       row.original.online
@@ -135,55 +135,55 @@ const columns: ColumnDef<apiTypes.Node, any>[] = [
   columnHelper.accessor('user.name', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
   }),
   columnHelper.accessor('registerMethod', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
   }),
   columnHelper.accessor('expiry', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
   }),
   columnHelper.accessor('machineKey', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
   }),
   columnHelper.accessor('nodeKey', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
   }),
   columnHelper.accessor('discoKey', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
   }),
   columnHelper.accessor('validTags', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
   }),
   columnHelper.accessor('invalidTags', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
   }),
   columnHelper.accessor('forcedTags', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
   }),
 ]

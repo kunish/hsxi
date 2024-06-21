@@ -49,20 +49,20 @@ const columns: ColumnDef<apiTypes.Route, any>[] = [
   columnHelper.accessor('id', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
   }),
   columnHelper.accessor('createdAt', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
     cell: ({ row }) => format(row.original.createdAt, 'yyyy-MM-dd HH:mm:ss'),
   }),
   columnHelper.accessor('node', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
     cell: ({ row }) => row.original.node.name,
     sortingFn: (a, b) =>
@@ -71,13 +71,13 @@ const columns: ColumnDef<apiTypes.Route, any>[] = [
   columnHelper.accessor('prefix', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
   }),
   columnHelper.accessor('enabled', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
     cell: ({ row }) =>
       h(Switch, {
@@ -97,7 +97,7 @@ const columns: ColumnDef<apiTypes.Route, any>[] = [
   columnHelper.accessor('advertised', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
     cell: ({ row }) =>
       row.original.advertised
@@ -107,7 +107,7 @@ const columns: ColumnDef<apiTypes.Route, any>[] = [
   columnHelper.accessor('isPrimary', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
     cell: ({ row }) =>
       row.original.isPrimary

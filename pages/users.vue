@@ -60,20 +60,20 @@ const columns: ColumnDef<apiTypes.User, any>[] = [
   columnHelper.accessor('id', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
   }),
   columnHelper.accessor('createdAt', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
     cell: ({ row }) => format(row.original.createdAt, 'yyyy-MM-dd HH:mm:ss'),
   }),
   columnHelper.accessor('name', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
   }),
 ]

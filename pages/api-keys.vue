@@ -63,26 +63,26 @@ const columns: ColumnDef<apiTypes.ApiKey, any>[] = [
   columnHelper.accessor('id', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
   }),
   columnHelper.accessor('createdAt', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
     cell: ({ row }) => format(row.original.createdAt, 'yyyy-MM-dd HH:mm:ss'),
   }),
   columnHelper.accessor('prefix', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
   }),
   columnHelper.accessor('expiration', {
     header: ({ column }) =>
       h(DataTableColumnHeader, {
-        column: column as Column<unknown, unknown>,
+        column: column as Column<unknown>,
       }),
     cell: ({ row }) => format(row.original.expiration, 'yyyy-MM-dd HH:mm:ss'),
   }),
